@@ -18,18 +18,18 @@
 **vite version:** >=3.0.0
 
 ```bash
-npm i vite-plugin-html3 -D
+npm i vite-plugin-html-tpl -D
 ```
 或
 
 ```bash
-yarn add vite-plugin-html2 -D
+yarn add vite-plugin-html-tpl -D
 ```
 
 或
 
 ```bash
-pnpm install vite-plugin-html2 -D
+pnpm install vite-plugin-html-tpl -D
 ```
 
 ## 使用
