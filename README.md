@@ -1,4 +1,4 @@
-# vite-plugin-html
+# vite-plugin-html-tple
 
 **中文** | [English](./README.md)
 
@@ -13,9 +13,9 @@
 
 ## 安装  
 
-**node version:** >=12.0.0
+**node version:** >=^14.18.0 || >=16.0.0
 
-**vite version:** >=2.0.0
+**vite version:** >=2.8.6
 
 ```bash
 npm i vite-plugin-html3 -D
@@ -233,17 +233,7 @@ export default defineConfig({
 | ------------- | --------------- | ------------- | ---------------- |
 | attrs      | `Record<string, string | boolean>` | - | 标签属性  |
  
-```ts
-    collapseWhitespace: true,
-    keepClosingSlash: true,
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true,
-    minifyCSS: true,
-```
-
+ 
 ### 运行示例
 
 ```bash
@@ -259,8 +249,7 @@ yarn example:vue2
 ## License
 
 MIT
-
-[npm-img]: https://img.shields.io/npm/v/vite-plugin-html2.svg
-[npm-url]: https://npmjs.com/package/vite-plugin-html2
-[node-img]: https://img.shields.io/node/v/vite-plugin-html2.svg
+[npm-img]: https://img.shields.io/npm/v/vite-plugin-html-tpl.svg
+[npm-url]: https://npmjs.com/package/vite-plugin-html-tpl
+[node-img]: https://img.shields.io/node/v/vite-plugin-html-tpl.svg
 [node-url]: https://nodejs.org/en/about/releases/
