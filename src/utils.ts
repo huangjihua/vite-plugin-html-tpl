@@ -1,5 +1,6 @@
 import type { ResolvedConfig } from 'vite';
-import * as path from 'pathe'
+// import * as path from 'pathe'
+import path from 'path'
 import { HTMLElement, parse } from 'node-html-parser'
 import { PageOption, UserOptions, CommentOptions } from './typing'
 

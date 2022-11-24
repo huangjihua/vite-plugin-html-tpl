@@ -1,22 +1,15 @@
 {
   "name": "vite-plugin-html-tpl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A vite plugin ,edit html template",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "pnpm run build --watch --ignore-watch examples",
-    "build": "tsup src/index.ts --dts --format esm,cjs,iife --legacy-output",
+    "build": "tsup src/index.ts --dts --format cjs,esm --legacy-output",
     "example:react": "cd examples/vite-react && pnpm run build",
     "example:vue2": "cd examples/vite-vue2 && pnpm run build",
     "example:vue3": "cd examples/vite-vue3 && pnpm run build",
     "publish": "npm publish vite-plugin-html-tpl@1.0.0"
-  },
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": "^14.18.0 || >=16.0.0"
   },
   "keywords": [
     "vite",
@@ -25,21 +18,19 @@
   "author": "Jeddy",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.14.0",
-    "@typescript-eslint/parser": "^5.14.0",
-    "@vitejs/plugin-legacy": "^2.3.1",
-    "bumpp": "^7.2.0",
+    "@types/node": "^17.0.35",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "bumpp": "^7.1.1",
     "connect-history-api-fallback": "^2.0.0",
-    "eslint": "^8.28.0",
+    "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "node-html-parser": "^6.1.4",
-    "pathe": "^1.0.0",
-    "prettier": "^2.8.0",
-    "tsup": "^6.5.0",
-    "typescript": "^4.9.3",
-    "vite": "^3.0.0",
+    "prettier": "^2.6.2",
+    "tsup": "^6.0.1",
+    "typescript": "^4.7.2",
+    "vite": "^3.2.4",
     "vite-plugin-external": "^1.2.7"
   }
 }

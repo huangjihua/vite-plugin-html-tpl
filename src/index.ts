@@ -1,10 +1,11 @@
 import type { Plugin, ResolvedConfig } from 'vite';
-import { loadEnv } from 'vite';
-import * as path from 'pathe';
+// import { loadEnv } from 'vite';
+// import * as path from 'pathe';
+import path from 'path'
 import { parse } from 'node-html-parser'
 import createExternal from 'vite-plugin-external';
 import history from 'connect-history-api-fallback';
-import legacy from '@vitejs/plugin-legacy';
+// import legacy from '@vitejs/plugin-legacy';
 import type { UserOptions, InjectOptions, HtmlTagDesOptions } from './typing'
 import { DEFAULT_TEMPLATE, isMpa, createInput, replaceComment, removeScript, insertScript, createRewire, getPage } from './utils'
 
@@ -15,21 +16,19 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
     pages = [], // 多页面
     inject,
     polyfills = null,
-    autoPolyfill
   } = userOptions
   let viteConfig: ResolvedConfig
   let plugins: Plugin[] = []
   if (externals) plugins.push(createExternal({ externals: externals }))
-  if (autoPolyfill) {
-    plugins.push(...legacy(autoPolyfill))
-  }
-
+  // if (autoPolyfill) {
+  //   plugins.push(...legacy(autoPolyfill))
+  // }
   const vitePluginHtmlTpl: Plugin = {
     name: 'vite-plugin-html-tpl',
     enforce: 'post',
     apply: 'build',
     // 可以在 vite 被解析之前修改 vite 的相关配置。钩子接收原始用户配置 config 和一个描述配置环境的变量env
-    config(config, { command }) {
+    config(config) {
       const input = createInput(userOptions, config as unknown as ResolvedConfig)
       if (input) {
         return {
@@ -44,7 +43,7 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
     // 在解析 vite 配置后调用。使用这个钩子读取和存储最终解析的配置。当插件需要根据运行的命令做一些不同的事情时，它很有用。
     configResolved(resolvedConfig) {
       viteConfig = resolvedConfig
-      loadEnv(viteConfig.mode, viteConfig.root, '')
+      // loadEnv(viteConfig.mode, viteConfig.root, '')
     },
     // 主要用来配置开发服务器，为 dev-server (connect 应用程序) 添加自定义的中间件
     configureServer(server) {
@@ -92,10 +91,11 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
     },
     // 转换 index.html 的专用钩子。钩子接收当前的 HTML 字符串和转换上下文
     transformIndexHtml(html, ctx) {
+      // console.log(viteConfig)
       const url = ctx.filename
       const base = viteConfig.base
       const excludeBaseUrl = url.replace(base, '/')
-      const htmlName = path.relative(process.cwd(), excludeBaseUrl)
+      const htmlName = path.resolve(process.cwd(), excludeBaseUrl)
       const page = getPage(userOptions, htmlName, viteConfig)
       const { tags = [], customTags = [], commentsTemplate = [] } = page?.inject || inject || {}
       // 替换注释
@@ -103,7 +103,7 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
       // polyfills自定义 CDN
       if (polyfills) {
         const root = parse(html)
-        console.log(html)
+        // console.log(html)
         const vlp = root.querySelector('script[id="vite-legacy-polyfill"]')
         if (vlp && polyfills.attrs) {
           for (let key in polyfills.attrs) {
