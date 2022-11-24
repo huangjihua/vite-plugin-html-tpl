@@ -15,7 +15,7 @@
 
 **node version:** >=^14.18.0 || >=16.0.0
 
-**vite version:** >=2.8.6
+**vite version:** >=3.0.0
 
 ```bash
 npm i vite-plugin-html3 -D
