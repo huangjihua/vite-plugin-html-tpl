@@ -30,7 +30,6 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
     apply: 'build',
     // 可以在 vite 被解析之前修改 vite 的相关配置。钩子接收原始用户配置 config 和一个描述配置环境的变量env
     config(config, { command }) {
-      console.log(config.plugins);
       const input = createInput(userOptions, config as unknown as ResolvedConfig)
       if (input) {
         return {

@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import template, { InjectOptions } from '../../src/';
+// import template, { InjectOptions } from 'vite-plugin-html-tpl'
+import template, { InjectOptions } from '../../src/'
+
 const inject: InjectOptions = {
   tags: [
     {
