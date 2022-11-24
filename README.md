@@ -1,6 +1,4 @@
-# vite-plugin-html-tple
-
-**中文** | [English](./README.md)
+# vite-plugin-html-tpl
 
 [![npm][npm-img]][npm-url] [![node][node-img]][node-url]
 
@@ -50,12 +48,12 @@ pnpm install vite-plugin-html-tpl -D
 ```ts
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import { vitePluginHtml } from 'vite-plugin-html2'
+import vitePluginHtmlTpl from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [
     react(),
-    vitePluginHtml({
+    vitePluginHtmlTpl({
       entry: 'src/main.ts',
       template: 'public/index.html', // 指定文件夹才需要配置，默认无需配置
       // 注入模板配置
@@ -80,12 +78,12 @@ export default defineConfig({
 ```ts
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import { vitePluginHtml } from 'vite-plugin-html2'
+import vitePluginHtmlTpl from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [
     react(),
-    vitePluginHtml({
+    vitePluginHtmlTpl({
       entry: 'src/main.ts',
       template: 'public/index.html',
       inject: {
@@ -109,12 +107,12 @@ export default defineConfig({
 ```ts
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import { vitePluginHtml } from 'vite-plugin-html2'
+import  vitePluginHtmlTpl  from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [
     react(),
-    vitePluginHtml({
+    vitePluginHtmlTpl({
       entry: 'src/main.ts',
       template: 'public/index.html',
       inject: {
@@ -139,11 +137,11 @@ export default defineConfig({
 
 ```ts
 import { defineConfig } from 'vite'
-import { vitePluginHtml } from 'vite-plugin-html2'
+import vitePluginHtmlTpl from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [
-    vitePluginHtml({
+    vitePluginHtmlTpl({
       pages: [
         {
           entry: 'src/main.ts',
@@ -185,7 +183,7 @@ export default defineConfig({
 
 ## 参数说明
 
-`vitePluginHtml(options: UserOptions)`
+`vitePluginHtmlTpl(options: UserOptions)`
 
 ### UserOptions
 

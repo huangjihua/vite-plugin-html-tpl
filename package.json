@@ -9,7 +9,8 @@
     "build": "tsup src/index.ts --dts --format esm,cjs,iife --legacy-output",
     "example:react": "cd examples/vite-react && pnpm run build",
     "example:vue2": "cd examples/vite-vue2 && pnpm run build",
-    "example:vue3": "cd examples/vite-vue3 && pnpm run build"
+    "example:vue3": "cd examples/vite-vue3 && pnpm run build",
+    "publish": "npm publish vite-plugin-html-tpl@1.0.0"
   },
   "files": [
     "dist"
