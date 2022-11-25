@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-html-tpl",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A vite plugin ,edit html template",
   "main": "dist/index.js",
   "scripts": {

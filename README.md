@@ -248,6 +248,7 @@ yarn example:vue2
 ## License
 
 MIT
+
 [npm-img]: https://img.shields.io/npm/v/vite-plugin-html-tpl.svg
 [npm-url]: https://npmjs.com/package/vite-plugin-html-tpl
 [node-img]: https://img.shields.io/node/v/vite-plugin-html-tpl.svg
