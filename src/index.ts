@@ -21,7 +21,7 @@ function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin[] {
   // if (autoPolyfill) {
   //   plugins.push(...legacy(autoPolyfill))
   // }
-  const vitePluginHtmlTpl: Plugin = {
+  const vitePluginHtml: Plugin = {
     name: 'vite-plugin-html-tpl',
     enforce: 'post',
     apply: 'build',
@@ -124,7 +124,7 @@ function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin[] {
     },
     async closeBundle() { }
   };
-  plugins.push(vitePluginHtmlTpl)
+  plugins.push(vitePluginHtml)
   return plugins;
 }
 export { vitePluginHtmlTpl, InjectOptions }
