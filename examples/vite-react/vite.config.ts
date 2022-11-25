@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import legacy from '@vitejs/plugin-legacy';
-import template, { InjectOptions } from 'vite-plugin-html-tpl'
+import { InjectOptions, vitePluginHtmlTpl } from 'vite-plugin-html-tpl'
 // import template, { InjectOptions } from '../../src/'
-
+console.log(vitePluginHtmlTpl)
 const inject: InjectOptions = {
   tags: [
     {
@@ -62,7 +62,7 @@ export default defineConfig({
   plugins: [
     react(),
     legacy({ targets: ['> 0.01%', 'not dead', 'not op_mini all'] }),
-    template({
+    vitePluginHtmlTpl({
       pages: [{
         entry: './src/main.tsx',
         template: './list.html',

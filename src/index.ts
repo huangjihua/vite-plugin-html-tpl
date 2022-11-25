@@ -5,11 +5,10 @@ import { parse } from 'node-html-parser'
 import createExternal from 'vite-plugin-external';
 import history from 'connect-history-api-fallback';
 // import legacy from '@vitejs/plugin-legacy';
-import type { UserOptions, InjectOptions, HtmlTagDesOptions } from './typing'
+import type { UserOptions, InjectOptions } from './typing'
 import { DEFAULT_TEMPLATE, isMpa, createInput, replaceComment, removeScript, insertScript, createRewire, getPage } from './utils'
 
-export type { InjectOptions, HtmlTagDesOptions }
-export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin[] {
+function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin[] {
   const {
     externals, // 确保外部化处理那些你不想打包进库的依赖
     pages = [], // 多页面
@@ -90,13 +89,13 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
     },
     // 转换 index.html 的专用钩子。钩子接收当前的 HTML 字符串和转换上下文
     transformIndexHtml(html, ctx) {
-      console.log(viteConfig)
+      // console.log(viteConfig)
       const url = ctx.filename
       const base = viteConfig.base
       const excludeBaseUrl = url.replace(base, '/')
       console.log(process.cwd(), viteConfig.root)
       const htmlName = relative(viteConfig.root, excludeBaseUrl)
-      console.log(htmlName)
+      // console.log(htmlName)
       const page = getPage(userOptions, htmlName, viteConfig)
       const { tags = [], customTags = [], commentsTemplate = [] } = page?.inject || inject || {}
       // 替换注释
@@ -128,3 +127,4 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
   plugins.push(vitePluginHtmlTpl)
   return plugins;
 }
+export { vitePluginHtmlTpl, InjectOptions }

@@ -7,7 +7,7 @@
 - 多页应用支持
 - 支持自定义`entry`
 - 支持 externals（确保外部化处理那些你不想打包进库的依赖）与`webpack` 配置相同
-- 支持 polyfills并支持外部 polyfills 设置
+- 支持 polyfills并支持外部 polyfills 设置 (暂不支持autoPolyfill设置，polyfill改为插件外部调用，注意需要在该插件之前处理 polyfill)，
 
 ## 安装  
 
@@ -48,16 +48,9 @@ pnpm install vite-plugin-html-tpl -D
 ```ts
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import vitePluginHtmlTpl from 'vite-plugin-html-tpl'
+import {vitePluginHtmlTpl,InjectOptions} from 'vite-plugin-html-tpl'
 
-export default defineConfig({
-  plugins: [
-    react(),
-    vitePluginHtmlTpl({
-      entry: 'src/main.ts',
-      template: 'public/index.html', // 指定文件夹才需要配置，默认无需配置
-      // 注入模板配置
-      inject: {
+const inject:InjectOptions = {
        commentsTemplate: [
           {
             commentName: 'react-cdn',
@@ -69,7 +62,15 @@ export default defineConfig({
             }
           }
         ]
-      },
+      }
+export default defineConfig({
+  plugins: [
+    react(),
+    vitePluginHtmlTpl({
+      entry: 'src/main.ts',
+      template: 'public/index.html', // 指定文件夹才需要配置，默认无需配置
+      // 注入模板配置
+      inject,
     }),
   ],
 })
@@ -78,7 +79,7 @@ export default defineConfig({
 ```ts
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import vitePluginHtmlTpl from 'vite-plugin-html-tpl'
+import {vitePluginHtmlTpl,InjectOptions} from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [
@@ -107,7 +108,7 @@ export default defineConfig({
 ```ts
 import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
-import  vitePluginHtmlTpl  from 'vite-plugin-html-tpl'
+import {vitePluginHtmlTpl,InjectOptions} from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [
@@ -137,7 +138,7 @@ export default defineConfig({
 
 ```ts
 import { defineConfig } from 'vite'
-import vitePluginHtmlTpl from 'vite-plugin-html-tpl'
+import {vitePluginHtmlTpl,InjectOptions} from 'vite-plugin-html-tpl'
 
 export default defineConfig({
   plugins: [

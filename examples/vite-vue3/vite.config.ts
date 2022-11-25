@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import template from 'vite-plugin-html-tpl';
+import { vitepluginhtmltpl, injectoptions } from 'vite-plugin-html-tpl';
 import * as path from 'path';
 
 // https://vitejs.dev/config/
