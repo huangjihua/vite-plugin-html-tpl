@@ -1,6 +1,5 @@
 import type { ResolvedConfig } from 'vite';
-// import * as path from 'pathe'
-import path from 'path'
+import { resolve, dirname, basename } from 'pathe'
 import { HTMLElement, parse } from 'node-html-parser'
 import { PageOption, UserOptions, CommentOptions } from './typing'
 
@@ -20,27 +19,27 @@ export function createInput(
   if (isMpa(viteConfig) || pages?.length) {
     const templates = pages.map((page) => page.template)
     templates.forEach((temp) => {
-      let dirName = path.dirname(temp)
-      const file = path.basename(temp)
+      let dirName = dirname(temp)
+      const file = basename(temp)
       dirName = dirName.replace(/\s+/g, '').replace(/\//g, '-')
 
       const key =
         dirName === '.' || dirName === 'public' || !dirName
           ? file.replace(/\.html/, '')
           : dirName
-      input[key] = path.resolve(root, temp)
+      input[key] = resolve(root, temp)
     })
 
     return input
   } else {
-    const dir = path.dirname(template)
+    const dir = dirname(template)
     if (ignoreDirs.includes(dir)) {
       return undefined
     } else {
-      const file = path.basename(template)
+      const file = basename(template)
       const key = file.replace(/\.html/, '')
       return {
-        [key]: path.resolve(root, template),
+        [key]: resolve(root, template),
       }
     }
   }
@@ -164,12 +163,12 @@ export function createRewire(
 
       const excludeBaseUrl = pathname.replace(baseUrl, '/')
 
-      const template = path.resolve(baseUrl, page.template)
+      const template = resolve(baseUrl, page.template)
       if (excludeBaseUrl === '/') {
         return template
       }
       const isApiUrl = proxyUrlKeys.some((item) =>
-        pathname.startsWith(path.resolve(baseUrl, item)),
+        pathname.startsWith(resolve(baseUrl, item)),
       )
       return isApiUrl ? excludeBaseUrl : template
     },
@@ -194,7 +193,7 @@ export function getPage(
       filename: DEFAULT_TEMPLATE,
       template: `./${DEFAULT_TEMPLATE}`,
     }
-    const _page = pages.filter((page) => path.resolve('/' + page.template) === path.resolve('/' + name))?.[0]
+    const _page = pages.filter((page) => resolve('/' + page.template) === resolve('/' + name))?.[0]
     page = _page ?? defaultPageOption ?? undefined
   } else {
     page = {

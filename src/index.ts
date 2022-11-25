@@ -1,7 +1,6 @@
 import type { Plugin, ResolvedConfig } from 'vite';
 // import { loadEnv } from 'vite';
-// import * as path from 'pathe';
-import path from 'path'
+import { relative } from "pathe";
 import { parse } from 'node-html-parser'
 import createExternal from 'vite-plugin-external';
 import history from 'connect-history-api-fallback';
@@ -91,11 +90,13 @@ export default function vitePluginHtmlTpl(userOptions: UserOptions = {}): Plugin
     },
     // 转换 index.html 的专用钩子。钩子接收当前的 HTML 字符串和转换上下文
     transformIndexHtml(html, ctx) {
-      // console.log(viteConfig)
+      console.log(viteConfig)
       const url = ctx.filename
       const base = viteConfig.base
       const excludeBaseUrl = url.replace(base, '/')
-      const htmlName = path.resolve(process.cwd(), excludeBaseUrl)
+      console.log(process.cwd(), viteConfig.root)
+      const htmlName = relative(viteConfig.root, excludeBaseUrl)
+      console.log(htmlName)
       const page = getPage(userOptions, htmlName, viteConfig)
       const { tags = [], customTags = [], commentsTemplate = [] } = page?.inject || inject || {}
       // 替换注释

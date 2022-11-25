@@ -63,6 +63,17 @@ export default defineConfig({
     react(),
     legacy({ targets: ['> 0.01%', 'not dead', 'not op_mini all'] }),
     template({
+      pages: [{
+        entry: './src/main.tsx',
+        template: './list.html',
+        filename: 'list.html',
+        inject
+      }, {
+        entry: './src/main.tsx',
+        template: './other.html',
+        filename: 'other.html',
+        inject
+      }],
       entry: './src/main.tsx',
       template: './index.html',
       externals: {

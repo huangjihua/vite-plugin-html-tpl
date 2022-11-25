@@ -10,6 +10,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.0.0
   node-html-parser: ^6.1.4
+  pathe: ^1.0.0
   prettier: ^2.6.2
   tsup: ^6.0.1
   typescript: ^4.7.2
@@ -17,7 +18,7 @@ specifiers:
   vite-plugin-external: ^1.2.7
 
 devDependencies:
-  '@types/node': 17.0.35
+  '@types/node': 17.0.45
   '@typescript-eslint/eslint-plugin': 5.26.0_hzuh7e2up357pvq3mkokjvu2lq
   '@typescript-eslint/parser': 5.26.0_xztl6dhthcahlo6akmb2bmjmle
   bumpp: 7.1.1
@@ -26,10 +27,11 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.16.0
   eslint-plugin-prettier: 4.0.0_j7rsahgqtkecno6yauhsgsglf4
   node-html-parser: 6.1.4
+  pathe: 1.0.0
   prettier: 2.6.2
   tsup: 6.0.1_typescript@4.7.2
   typescript: 4.7.2
-  vite: 3.2.4_@types+node@17.0.35
+  vite: 3.2.4_@types+node@17.0.45
   vite-plugin-external: 1.2.7
 
 packages:
@@ -119,8 +121,8 @@ packages:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
     dev: true
 
-  /@types/node/17.0.35:
-    resolution: {integrity: sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==}
+  /@types/node/17.0.45:
+    resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.26.0_hzuh7e2up357pvq3mkokjvu2lq:
@@ -1554,6 +1556,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /pathe/1.0.0:
+    resolution: {integrity: sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg==}
+    dev: true
+
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: true
@@ -1923,7 +1929,7 @@ packages:
       fs-extra: 10.1.0
     dev: true
 
-  /vite/3.2.4_@types+node@17.0.35:
+  /vite/3.2.4_@types+node@17.0.45:
     resolution: {integrity: sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1948,7 +1954,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 17.0.35
+      '@types/node': 17.0.45
       esbuild: 0.15.15
       postcss: 8.4.19
       resolve: 1.22.1
