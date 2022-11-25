@@ -9,6 +9,7 @@
 - 支持 externals（确保外部化处理那些你不想打包进库的依赖）与`webpack` 配置相同
 - 支持 polyfills并支持外部 polyfills 设置 (暂不支持autoPolyfill设置，polyfill改为插件外部调用，注意需要在该插件之前处理 polyfill)，
 
+
 ## 安装  
 
 **node version:** >=^14.18.0 || >=16.0.0
@@ -32,6 +33,19 @@ pnpm install vite-plugin-html-tpl -D
 
 ## 使用
 
+`legacy`必须在该插件之前执行，`polyfills` 配置才能生效：
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import legacy from '@vitejs/plugin-legacy';
+ 
+export default defineConfig({
+  plugins: [
+    react(),
+    legacy({ targets: ['> 0.01%', 'not dead', 'not op_mini all'] }),
+    vitePluginHtmlTpl({...})],
+})
+```
 - **注释模板语法**
  
  在 `index.html` 中增加 需要替换的注释标签，例如
